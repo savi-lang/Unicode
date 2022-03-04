@@ -1,0 +1,13 @@
+:manifest lib Unicode
+  :sources "src/*.savi"
+
+:manifest bin "spec"
+  :copies Unicode
+  :sources "spec/*.savi"
+
+  :dependency Spec v0
+    :from "github:savi-lang/Spec"
+    :depends on Map
+
+  :transitive dependency Map v0
+    :from "github:savi-lang/Map"
