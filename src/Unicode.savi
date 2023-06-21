@@ -12,7 +12,7 @@
   :: or if it has no corresponding lowercase letter defined in the Unicode spec.
   :fun codepoint_to_uppercase!(code U32) U32
     other_code = @_case_info!(code)
-    error! unless other_code < 0x8000_0000
+    error! unless (other_code < 0x8000_0000)
     other_code
 
   // These are functions used in the `_case_info!` method to distinguish
@@ -25,7 +25,7 @@
 
   :fun _case_info!(code U32) U32
     // Fast path for ASCII
-    return @_case_info_00_ascii!(code) if code < 0x80
+    return @_case_info_00_ascii!(code) if (code < 0x80)
 
     // Note: the following two websites are useful when working on this logic:
     // Search by pasted character: https://www.compart.com/en/unicode
